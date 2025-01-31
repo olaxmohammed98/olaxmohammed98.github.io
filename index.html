@@ -181,22 +181,41 @@ During my six-month experience at a startup, I played a key role in shaping HR p
                     <h3 class="slide-title">Tableau</h3>
                     <p class="slide-objective"><strong>Task:</strong> I created an interactive dashboard using Tableau to map out global sales by region.</p>
             
-                <!-- Tableau Map Embed -->
-                <div class="tableau-embed-container">
-                    <iframe src="https://public.tableau.com/views/GlobalSalesByCountry/Sheet1?:embed=y" width="100%" height="600px"></iframe>
+                 <!-- Tableau Map Embed (using JavaScript API) -->
+                 <div id="tableauViz"></div>
+    
+                <!-- Map Description and Features -->
+                <div class="mt-4">
+                    <h5>Map Features:</h5>
+                    <ul style="font-size: 0.9rem;">
+                        <li style="margin-bottom: 10px;">The map visualizes global sales, with countries shaded according to sales performance.</li>
+                        <li style="margin-bottom: 10px;">The map is interactive, users can filter the map by sales to view specific regions.</li>
+                        <li style="margin-bottom: 10px;">Hovering over a country reveals additional data, such as population and GDP, providing more context to the sales figures.</li>
+                    </ul>
                 </div>
+             </div>
+                
+            <!-- Tableau JavaScript API Embed Script -->
+            <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.8.0.min.js"></script>
+            <script type="text/javascript">
+                var viz;
+                var vizUrl = 'https://public.tableau.com/views/GlobalSalesByCountry/Sheet1';
+                var options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Tableau visualization is loaded");
+                    }
+                };
+            
+                function initViz() {
+                    var containerDiv = document.getElementById("tableauViz");
+                    viz = new tableau.Viz(containerDiv, vizUrl, options);
+                }
 
-                    <!-- Map Description and Features -->
-                    <div class="mt-4">
-                        <h5>Map Features:</h5>
-                        <ul style="font-size: 0.9rem;">
-                            <li style="margin-bottom: 10px;">The map visualizes global sales, with countries shaded according to sales performance.</li>
-                            <li style="margin-bottom: 10px;">The map is interactive, users can filter the map by sales to view specific regions.</li>
-                            <li style="margin-bottom: 10px;">Hovering over a country reveals additional data, such as population and GDP, providing more context to the sales figures.</li>
-                        </ul>
-                    </div>
-                    
-            </div>
+    // Initialize the viz when the page is loaded
+    window.onload = initViz;
+</script>
+                
         </section>
         <hr class="m-0" />
             <!-- Interests-->
