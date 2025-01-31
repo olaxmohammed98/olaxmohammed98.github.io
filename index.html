@@ -144,7 +144,24 @@ During my six-month experience at a startup, I played a key role in shaping HR p
                         <i class="fab fa-r-project fa-4x"></i>
                     </div>
                 </div>
-                <p class="mt-3">This section highlights key technical skills in SQL, Excel, R, and Tableau, featuring snippets from case studies I have completed.</p>
+                <p class="mt-3">This section highlights key technical skills in SQL, Tableau, Excel, and R, featuring snippets from case studies I have completed on my own from public datasets for practice.</p>
+
+                <!-- SQL Slide -->
+                <div class="slide" id="sql-slide">
+                    <h2 class="slide-title">SQL</h2>
+                    <p class="slide-objective"><strong>Task objective:</strong> Analyze the total revenue per country in 2022. The goal is to determine which countries generated the most sales, and to rank them by total revenue.</p>
+                    <div class="row">
+                        <!-- Description Paragraph (Left side) -->
+                        <div class="col-md-6">
+                            <p class="slide-description">I used the <span style="color: blue;">bigquery-public-data.thelook_ecommerce.order_items</span> and <span style="color: blue;">bigquery-public-data.thelook_ecommerce.users</span> datasets from BigQuery public data to analyze total revenue per country in 2022. As depicted on the snippet, I achieved this in a single query. I assigned aliases to the tables for ease (<span style="color: blue;">oi</span> for <span style="color: blue;">order_items</span> and <span style="color: blue;">u</span> for <span style="color: blue;">users</span>), joined the <span style="color: blue;">order_items</span> table with the <span style="color: blue;">users</span> table on the <span style="color: blue;">user_id</span> field, and filtered the data to include only orders from 2022. I then grouped the data by <span style="color: blue;">country</span> and calculated the total revenue using the <span style="color: blue;">sale_price</span> column from the <span style="color: blue;">order_items</span> table. Lastly, I ordered the results by total revenue in descending order to identify the countries generating the most sales!</p>
+                        </div>
+        
+                        <!-- Query Image (Right side) -->
+                        <div class="col-md-6">
+                            <img src="SQL_snippet.png" alt="SQL Query Screenshot" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <hr class="m-0" />
